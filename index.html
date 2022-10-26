@@ -71,6 +71,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-12" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Changhuiashui.github.io/2022/10/26/12/" class="article-date">
+  <time class="dt-published" datetime="2022-10-26T08:33:54.000Z" itemprop="datePublished">2022-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/Changhuiashui.github.io/2022/10/26/12/">12</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="z栈——链栈，加注释"><a href="#z栈——链栈，加注释" class="headerlink" title="z栈——链栈，加注释"></a>z栈——链栈，加注释</h1><p><img src="/Changhuiashui.github.io/Changhuiashui.github/2022/10/26/12/%E5%AD%A4%E7%8B%AC%E7%9A%84%E4%BA%BA.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line">#define STACKINCREMENT 10</span><br><span class="line"></span><br><span class="line">typedef int SElemType;//参数类型</span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    SElemType *base;</span><br><span class="line">    SElemType *top;</span><br><span class="line">    int stackSize;</span><br><span class="line">&#125;sqStack;</span><br><span class="line"></span><br><span class="line">void InitStack(sqStack &amp;s);//初始化空栈</span><br><span class="line">void Push(sqStack &amp;s,SElemType e);//入栈</span><br><span class="line">int Pop(sqStack &amp;s,SElemType &amp;e);//出栈</span><br><span class="line">int StackLength(sqStack s);//栈长度</span><br><span class="line">bool StackEmpty(sqStack s);//栈是否为空</span><br><span class="line"></span><br><span class="line">void InitStack(sqStack &amp;s)//创建空栈</span><br><span class="line">&#123;</span><br><span class="line">    s.base = (SElemType *)malloc(STACK_INIT_SIZE*sizeof(SElemType));</span><br><span class="line">    if(!s.base)</span><br><span class="line">    &#123;</span><br><span class="line">        exit(0);</span><br><span class="line">    &#125;</span><br><span class="line">    s.top = s.base;</span><br><span class="line">    s.stackSize = STACK_INIT_SIZE;</span><br><span class="line">&#125;</span><br><span class="line">//入栈</span><br><span class="line">void Push(sqStack &amp;s,SElemType e)</span><br><span class="line">&#123;</span><br><span class="line">    if(s.top-s.base &gt;= s.stackSize )//栈满，符合条件追加空间</span><br><span class="line">    &#123;</span><br><span class="line">        s.base = (SElemType *)realloc(s.base,(s.stackSize + STACKINCREMENT)*sizeof(SElemType));//不够，追加空间</span><br><span class="line">        if(!s.base)//储存分配失败</span><br><span class="line">        &#123;</span><br><span class="line">            exit(0);//OVERFLOW</span><br><span class="line">        &#125;</span><br><span class="line">    s.top = s.base + s.stackSize;//长度</span><br><span class="line">    s.stackSize = s.stackSize + STACKINCREMENT;</span><br><span class="line">    &#125;</span><br><span class="line">    *(s.top) = e;//将插入的元素e赋值给s.top，成为新的栈顶</span><br><span class="line">    s.top++;//top加一，反之弹出，指针减一</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int Pop(sqStack &amp;s,SElemType &amp;e)//删除s，并将s赋值给e，弹出</span><br><span class="line">&#123;</span><br><span class="line">    if(s.top == s.base)//栈空</span><br><span class="line">    &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    e = *--(s.top);//先将top指针值赋给e，再减一</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int StackLength(sqStack s)//Length</span><br><span class="line">&#123;</span><br><span class="line">    return (s.top - s.base);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool StackEmpty(sqStack s)//栈空判断，空ture，非空false</span><br><span class="line">&#123;</span><br><span class="line">   if(s.base == s.top)&#123;</span><br><span class="line">     return true;</span><br><span class="line">    &#125;</span><br><span class="line">   else return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()//测试主函数</span><br><span class="line">&#123;</span><br><span class="line">    SElemType c;</span><br><span class="line">    int m;</span><br><span class="line">    sqStack s;</span><br><span class="line">    int len, h,j;</span><br><span class="line">    InitStack(s);</span><br><span class="line">    printf(&quot;请输入栈的元素个数：&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;h);</span><br><span class="line"></span><br><span class="line">    for(j=1;j&lt;=h;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;请输入第%d个元素：&quot;,j);</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;c);</span><br><span class="line">        Push(s, c);//入栈</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    len = StackLength(s);</span><br><span class="line">    printf(&quot;栈的长度是：%d\n&quot;,len);</span><br><span class="line">    if(StackEmpty(s))&#123;</span><br><span class="line">     printf(&quot;栈空\n&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"> else&#123;</span><br><span class="line">  printf(&quot;栈非空\n&quot;);</span><br><span class="line"> &#125;</span><br><span class="line">    printf(&quot;输出栈的元素：&quot;);</span><br><span class="line"> for(int i=1;i&lt;=len;i++)&#123;</span><br><span class="line">     Pop(s,m);//出栈</span><br><span class="line">     printf(&quot;%d &quot;,m);</span><br><span class="line"> &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://changhuaishui.github.io/Changhuiashui.github.io/2022/10/26/12/" data-id="cl9pdyvvn0000bwtvgifr3bs6" data-title="12" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Changhuiashui.github.io/tags/%E9%AB%98%E4%B8%89%E6%97%B6%E7%9F%A5%E9%81%93%E7%9A%84%E6%AD%8C%E6%89%8B%EF%BC%8C%E5%9C%A8%E5%A4%A7%E4%BA%8C%E4%B8%80%E4%B8%AA%E7%8B%AC%E8%87%AA%E4%BB%8E%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%B5%B0%E5%9B%9E%E5%AE%BF%E8%88%8D%E7%9A%84%E5%A4%9C%E6%99%9A%E7%AA%81%E7%84%B6%E6%83%B3%E8%B5%B7%E8%BF%99%E9%A6%96%E6%AD%8C%E3%80%82%E7%9F%A5%E9%81%93%E4%B8%8D%E5%AE%89%E4%B8%8E%E7%84%A6%E8%99%91%E4%B8%80%E5%AE%9A%E5%AD%98%E5%9C%A8%E4%BA%8E%E4%BA%BA%E7%94%9F%E7%9A%84%E6%AF%8F%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%8C%E4%BD%86%E6%AF%8F%E4%B8%AA%E5%BD%93%E4%B8%8B%E7%9C%9F%E7%9C%9F%E5%88%87%E5%88%87%E7%9A%84%E6%84%9F%E5%8F%97%E5%8F%88%E6%80%BB%E6%98%AF%E5%A6%82%E6%AD%A4%E9%9A%BE%E4%BB%A5%E6%B6%88%E7%A3%A8%E3%80%82/" rel="tag">高三时知道的歌手，在大二一个独自从图书馆走回宿舍的夜晚突然想起这首歌。知道不安与焦虑一定存在于人生的每个阶段，但每个当下真真切切的感受又总是如此难以消磨。</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/Changhuiashui.github.io/2022/10/20/11/" class="article-date">
@@ -454,47 +497,6 @@
 
 
   
-    <article id="post-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/Changhuiashui.github.io/2022/09/27/3/" class="article-date">
-  <time class="dt-published" datetime="2022-09-27T07:01:36.000Z" itemprop="datePublished">2022-09-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/Changhuiashui.github.io/2022/09/27/3/">3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/Changhuiashui.github.io/2022/09/27/3/%E7%A2%A7%E5%8F%B6%E7%BA%A2%E6%A1%83.png" alt="biyehongtao"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://changhuaishui.github.io/Changhuiashui.github.io/2022/09/27/3/" data-id="cl8jurgs800007gtv2pdwez0c" data-title="3" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Changhuiashui.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" rel="tag">图片测试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -513,7 +515,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87-%E6%B7%BB%E5%8A%A0%E7%99%BD%E8%BE%B9%E6%A1%86/" rel="tag">上传照片 添加白边框</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E4%B8%8D%E6%83%B3%E8%AF%84%E8%AE%BA/" rel="tag">不想评论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E5%86%92%E6%B3%A1%E6%B3%95%E9%93%BE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%A5%A5/" rel="tag">冒泡法链————祥</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E5%97%A8%E5%97%A8%E5%97%A8%EF%BC%8C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%AE%9E%E9%AA%8C1-%E4%B8%8B%E5%9B%BE%E6%98%AF%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E4%B8%80/" rel="tag">嗨嗨嗨，更新博客实验1 下图是个人作品一</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" rel="tag">图片测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E6%8F%92%E5%85%A5%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E9%81%8D%E5%8E%86%EF%BC%8C%E5%90%88%E5%B9%B6%E3%80%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/" rel="tag">插入，删除，遍历，合并。数据结构c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E6%A0%88%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E7%89%88/" rel="tag">栈——修改版</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/" rel="tag">栈的基本实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85%EF%BC%8C%E8%AE%B0%E5%BD%95%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9A%84%E7%94%9F%E6%B4%BB/" rel="tag">第一天的第二次博客，记录心情，记录零碎的的生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%87%8D%E6%96%B0%E4%BF%AE%E6%94%B9%E9%94%99%E8%AF%AF%E2%80%94%E2%80%94%E7%A5%A5/" rel="tag">重新修改错误——祥</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%93%BE%E6%A0%88/" rel="tag">链栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%98%9F%E9%93%BE/" rel="tag">队链</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87-%E6%B7%BB%E5%8A%A0%E7%99%BD%E8%BE%B9%E6%A1%86/" rel="tag">上传照片 添加白边框</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E4%B8%8D%E6%83%B3%E8%AF%84%E8%AE%BA/" rel="tag">不想评论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E5%86%92%E6%B3%A1%E6%B3%95%E9%93%BE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%A5%A5/" rel="tag">冒泡法链————祥</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E5%97%A8%E5%97%A8%E5%97%A8%EF%BC%8C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%AE%9E%E9%AA%8C1-%E4%B8%8B%E5%9B%BE%E6%98%AF%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E4%B8%80/" rel="tag">嗨嗨嗨，更新博客实验1 下图是个人作品一</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" rel="tag">图片测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E6%8F%92%E5%85%A5%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E9%81%8D%E5%8E%86%EF%BC%8C%E5%90%88%E5%B9%B6%E3%80%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/" rel="tag">插入，删除，遍历，合并。数据结构c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E6%A0%88%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E7%89%88/" rel="tag">栈——修改版</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/" rel="tag">栈的基本实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85%EF%BC%8C%E8%AE%B0%E5%BD%95%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9A%84%E7%94%9F%E6%B4%BB/" rel="tag">第一天的第二次博客，记录心情，记录零碎的的生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%87%8D%E6%96%B0%E4%BF%AE%E6%94%B9%E9%94%99%E8%AF%AF%E2%80%94%E2%80%94%E7%A5%A5/" rel="tag">重新修改错误——祥</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%93%BE%E6%A0%88/" rel="tag">链栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%98%9F%E9%93%BE/" rel="tag">队链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Changhuiashui.github.io/tags/%E9%AB%98%E4%B8%89%E6%97%B6%E7%9F%A5%E9%81%93%E7%9A%84%E6%AD%8C%E6%89%8B%EF%BC%8C%E5%9C%A8%E5%A4%A7%E4%BA%8C%E4%B8%80%E4%B8%AA%E7%8B%AC%E8%87%AA%E4%BB%8E%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%B5%B0%E5%9B%9E%E5%AE%BF%E8%88%8D%E7%9A%84%E5%A4%9C%E6%99%9A%E7%AA%81%E7%84%B6%E6%83%B3%E8%B5%B7%E8%BF%99%E9%A6%96%E6%AD%8C%E3%80%82%E7%9F%A5%E9%81%93%E4%B8%8D%E5%AE%89%E4%B8%8E%E7%84%A6%E8%99%91%E4%B8%80%E5%AE%9A%E5%AD%98%E5%9C%A8%E4%BA%8E%E4%BA%BA%E7%94%9F%E7%9A%84%E6%AF%8F%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%8C%E4%BD%86%E6%AF%8F%E4%B8%AA%E5%BD%93%E4%B8%8B%E7%9C%9F%E7%9C%9F%E5%88%87%E5%88%87%E7%9A%84%E6%84%9F%E5%8F%97%E5%8F%88%E6%80%BB%E6%98%AF%E5%A6%82%E6%AD%A4%E9%9A%BE%E4%BB%A5%E6%B6%88%E7%A3%A8%E3%80%82/" rel="tag">高三时知道的歌手，在大二一个独自从图书馆走回宿舍的夜晚突然想起这首歌。知道不安与焦虑一定存在于人生的每个阶段，但每个当下真真切切的感受又总是如此难以消磨。</a></li></ul>
     </div>
   </div>
 
@@ -523,7 +525,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/Changhuiashui.github.io/tags/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87-%E6%B7%BB%E5%8A%A0%E7%99%BD%E8%BE%B9%E6%A1%86/" style="font-size: 10px;">上传照片 添加白边框</a> <a href="/Changhuiashui.github.io/tags/%E4%B8%8D%E6%83%B3%E8%AF%84%E8%AE%BA/" style="font-size: 10px;">不想评论</a> <a href="/Changhuiashui.github.io/tags/%E5%86%92%E6%B3%A1%E6%B3%95%E9%93%BE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%A5%A5/" style="font-size: 10px;">冒泡法链————祥</a> <a href="/Changhuiashui.github.io/tags/%E5%97%A8%E5%97%A8%E5%97%A8%EF%BC%8C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%AE%9E%E9%AA%8C1-%E4%B8%8B%E5%9B%BE%E6%98%AF%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E4%B8%80/" style="font-size: 10px;">嗨嗨嗨，更新博客实验1 下图是个人作品一</a> <a href="/Changhuiashui.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">图片测试</a> <a href="/Changhuiashui.github.io/tags/%E6%8F%92%E5%85%A5%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E9%81%8D%E5%8E%86%EF%BC%8C%E5%90%88%E5%B9%B6%E3%80%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/" style="font-size: 10px;">插入，删除，遍历，合并。数据结构c</a> <a href="/Changhuiashui.github.io/tags/%E6%A0%88%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E7%89%88/" style="font-size: 10px;">栈——修改版</a> <a href="/Changhuiashui.github.io/tags/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/" style="font-size: 10px;">栈的基本实现</a> <a href="/Changhuiashui.github.io/tags/%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85%EF%BC%8C%E8%AE%B0%E5%BD%95%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9A%84%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">第一天的第二次博客，记录心情，记录零碎的的生活</a> <a href="/Changhuiashui.github.io/tags/%E9%87%8D%E6%96%B0%E4%BF%AE%E6%94%B9%E9%94%99%E8%AF%AF%E2%80%94%E2%80%94%E7%A5%A5/" style="font-size: 10px;">重新修改错误——祥</a> <a href="/Changhuiashui.github.io/tags/%E9%93%BE%E6%A0%88/" style="font-size: 10px;">链栈</a> <a href="/Changhuiashui.github.io/tags/%E9%98%9F%E9%93%BE/" style="font-size: 10px;">队链</a>
+      <a href="/Changhuiashui.github.io/tags/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87-%E6%B7%BB%E5%8A%A0%E7%99%BD%E8%BE%B9%E6%A1%86/" style="font-size: 10px;">上传照片 添加白边框</a> <a href="/Changhuiashui.github.io/tags/%E4%B8%8D%E6%83%B3%E8%AF%84%E8%AE%BA/" style="font-size: 10px;">不想评论</a> <a href="/Changhuiashui.github.io/tags/%E5%86%92%E6%B3%A1%E6%B3%95%E9%93%BE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%A5%A5/" style="font-size: 10px;">冒泡法链————祥</a> <a href="/Changhuiashui.github.io/tags/%E5%97%A8%E5%97%A8%E5%97%A8%EF%BC%8C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%AE%9E%E9%AA%8C1-%E4%B8%8B%E5%9B%BE%E6%98%AF%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E4%B8%80/" style="font-size: 10px;">嗨嗨嗨，更新博客实验1 下图是个人作品一</a> <a href="/Changhuiashui.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">图片测试</a> <a href="/Changhuiashui.github.io/tags/%E6%8F%92%E5%85%A5%EF%BC%8C%E5%88%A0%E9%99%A4%EF%BC%8C%E9%81%8D%E5%8E%86%EF%BC%8C%E5%90%88%E5%B9%B6%E3%80%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/" style="font-size: 10px;">插入，删除，遍历，合并。数据结构c</a> <a href="/Changhuiashui.github.io/tags/%E6%A0%88%E2%80%94%E2%80%94%E4%BF%AE%E6%94%B9%E7%89%88/" style="font-size: 10px;">栈——修改版</a> <a href="/Changhuiashui.github.io/tags/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0/" style="font-size: 10px;">栈的基本实现</a> <a href="/Changhuiashui.github.io/tags/%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85%EF%BC%8C%E8%AE%B0%E5%BD%95%E9%9B%B6%E7%A2%8E%E7%9A%84%E7%9A%84%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">第一天的第二次博客，记录心情，记录零碎的的生活</a> <a href="/Changhuiashui.github.io/tags/%E9%87%8D%E6%96%B0%E4%BF%AE%E6%94%B9%E9%94%99%E8%AF%AF%E2%80%94%E2%80%94%E7%A5%A5/" style="font-size: 10px;">重新修改错误——祥</a> <a href="/Changhuiashui.github.io/tags/%E9%93%BE%E6%A0%88/" style="font-size: 10px;">链栈</a> <a href="/Changhuiashui.github.io/tags/%E9%98%9F%E9%93%BE/" style="font-size: 10px;">队链</a> <a href="/Changhuiashui.github.io/tags/%E9%AB%98%E4%B8%89%E6%97%B6%E7%9F%A5%E9%81%93%E7%9A%84%E6%AD%8C%E6%89%8B%EF%BC%8C%E5%9C%A8%E5%A4%A7%E4%BA%8C%E4%B8%80%E4%B8%AA%E7%8B%AC%E8%87%AA%E4%BB%8E%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%B5%B0%E5%9B%9E%E5%AE%BF%E8%88%8D%E7%9A%84%E5%A4%9C%E6%99%9A%E7%AA%81%E7%84%B6%E6%83%B3%E8%B5%B7%E8%BF%99%E9%A6%96%E6%AD%8C%E3%80%82%E7%9F%A5%E9%81%93%E4%B8%8D%E5%AE%89%E4%B8%8E%E7%84%A6%E8%99%91%E4%B8%80%E5%AE%9A%E5%AD%98%E5%9C%A8%E4%BA%8E%E4%BA%BA%E7%94%9F%E7%9A%84%E6%AF%8F%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%8C%E4%BD%86%E6%AF%8F%E4%B8%AA%E5%BD%93%E4%B8%8B%E7%9C%9F%E7%9C%9F%E5%88%87%E5%88%87%E7%9A%84%E6%84%9F%E5%8F%97%E5%8F%88%E6%80%BB%E6%98%AF%E5%A6%82%E6%AD%A4%E9%9A%BE%E4%BB%A5%E6%B6%88%E7%A3%A8%E3%80%82/" style="font-size: 10px;">高三时知道的歌手，在大二一个独自从图书馆走回宿舍的夜晚突然想起这首歌。知道不安与焦虑一定存在于人生的每个阶段，但每个当下真真切切的感受又总是如此难以消磨。</a>
     </div>
   </div>
 
@@ -545,6 +547,10 @@
       <ul>
         
           <li>
+            <a href="/Changhuiashui.github.io/2022/10/26/12/">12</a>
+          </li>
+        
+          <li>
             <a href="/Changhuiashui.github.io/2022/10/20/11/">11</a>
           </li>
         
@@ -558,10 +564,6 @@
         
           <li>
             <a href="/Changhuiashui.github.io/2022/10/19/8/">8</a>
-          </li>
-        
-          <li>
-            <a href="/Changhuiashui.github.io/2022/10/13/777/">777</a>
           </li>
         
       </ul>
